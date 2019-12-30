@@ -1,0 +1,57 @@
+<h2 style='margin-top: -80px; margin-left: 470px;'><b>{{kitchen_name}}</b></h2>
+      
+
+<div class="w3-section w3-padding-16">
+   <form method="post" #addDishForm='ngForm' (ngSubmit)='addDish(addDishForm)' novalidate="" enctype="multipart/form-data">
+      <input type="hidden" name="csrfmiddlewaretoken" value="tMkKUklienDKnKe0aOg4kiKALzUt6YwNQIG2abOcxf5CVtK3TxQAwWDyLOuPUZnu">
+      <table stlye="border: 3px solid black;">
+         <tbody>
+            <tr class='stick'><th><label for="id_dish_name">Dish name:</label></th><td><input ngModel required type="text" name="dish_name" maxlength="50" required="" id="id_dish_name"></td></tr> &nbsp; &nbsp;
+            <tr class='stick'><th><label for="id_price">Price:</label></th><td><input ngModel required type="number" name="price" step="0.01" required="" id="id_price"></td></tr> &nbsp; &nbsp;
+            <tr class='stick'><th><label for="id_is_vegan"> <input type="checkbox" (change)='vegan_let()' name="is_vegan" id="id_is_vegan"> Is vegan:</label></th><td></td></tr> &nbsp; &nbsp;
+            <tr class='stick'><input type="submit" class="button" value="Add Dish">  </tr>
+         </tbody>
+      </table>
+   
+   </form>
+</div>
+
+
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:-50px">
+
+   <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+
+     
+     <p></p>
+
+     <table style="width:100%">
+         <tr>
+           <th>Dish</th>
+           <th>Price</th>
+           <th>Vegan</th>
+           <th></th>
+         </tr>
+         
+            <tr *ngFor='let dish of dishes'>
+               <td class='td'> <b style="font-size: 18px;"> {{ dish.dish_name }} </b> </td>
+               <td ><b  style="font-size: 18px;"> ${{ dish.price }} </b></td>
+               <td >{{ dish.is_vegan }}</td>
+               <td></td>
+            </tr>
+         
+         
+       </table>
+
+     
+   </div>
+ 
+ </div>
+
+
+
+<style>
+
+   tr.stick{
+      display: inline-block;
+   }
+</style>

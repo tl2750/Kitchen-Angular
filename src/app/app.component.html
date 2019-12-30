@@ -1,0 +1,61 @@
+
+
+<!-- <input type='text' appCustom />  -->
+
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container">
+    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
+      <i class="fa fa-remove"></i>
+    </a>
+    
+    <h4 *ngIf='LoginService.login'><b>Hey {{LoginService.username}}! </b></h4>
+    
+  </div>
+  <div class="w3-bar-block">
+   
+  
+    
+   <a *ngIf='!LoginService.login' routerLink='/signup'  class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-user fa-fw w3-margin-right"></i> Signup </a>&nbsp;&nbsp; 
+   
+   <a *ngIf='LoginService.login' (click)="LoginService.logout_user()"  class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-user fa-fw w3-margin-right"></i> Logout </a>&nbsp;&nbsp; 
+
+   <a (click)="home()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Home</a> 
+   <a (click)='cart_url()' onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>My Cart</a> 
+
+
+   <br *ngIf='!LoginService.login'>
+   <br *ngIf='!LoginService.login'>    
+   
+   <app-login *ngIf='!LoginService.login'  (login_state_changed)='set_login_true($event)' (provider_state_changed)='set_provider_true($event)' (username_changed)='set_username($event)'></app-login>
+ 
+   <a *ngIf='LoginService.provider'  routerLink = '/myKitchen' class="w3-bar-item w3-button w3-padding" ><i class="fa fa-th-large fa-fw w3-margin-right"></i> My Kitchen </a>
+   <a *ngIf='LoginService.provider' (click)='addKitchenForm()' class="w3-bar-item w3-button w3-padding" ><i class="fa fa-th-large fa-fw w3-margin-right"></i> Add Kitchen </a> 
+   <a *ngIf='LoginService.login' routerLink = '/orders' class="w3-bar-item w3-button w3-padding "><i class="fa fa-user fa-fw w3-margin-right"></i>  Orders </a> &nbsp;&nbsp;
+    </div>
+</nav>
+
+<div class="w3-main" style="margin-left:300px">
+
+  <!-- Header -->
+  <header id="portfolio">
+    
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container">
+    
+    
+    
+    <div class="w3-section w3-bottombar w3-padding-16">
+      <span class="w3-margin-right">Filter:</span> 
+      <button (click)="home()" class="w3-button w3-green">Home</button>&nbsp;
+      <button *ngIf='LoginService.provider'  routerLink = '/myKitchen' class="w3-button w3-green">My Kitchen</button>&nbsp;
+      <button (click)='cart_url()' class="w3-button w3-green w3-hide-small"><i></i>Cart</button>&nbsp;
+      <button *ngIf='LoginService.login' routerLink = '/orders' class="w3-button w3-green w3-hide-small"><i class="fa"></i>Orders</button>
+    </div>
+    </div>
+  </header>
+   
+  <router-outlet></router-outlet>
+  <router-outlet name='simpleOut'></router-outlet>
+  
+  
+</div>

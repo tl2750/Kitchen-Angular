@@ -1,0 +1,19 @@
+
+
+
+
+ <form method="post"  enctype="multipart/form-data" #kitchenForm='ngForm'  (ngSubmit)='add_kitchen(kitchenForm)'>
+   <input type="hidden" name="csrfmiddlewaretoken" value="9nPGXaCtv9Zel49svIftxkfaEL4Uu1Ho6Ni5jTG1VsteGpSW83uvRHs2TKM0FtkT">
+   <table stlye="border: 3px solid black;">
+      <tbody>
+         <tr>
+            <th><label for="id_kitchen_name">Kitchen name:</label></th>
+            <td><input ngModel type="text" name="kitchen_name" maxlength="50" required id="id_kitchen_name"></td>
+         </tr>
+         <tr>
+            <th><label for="id_image">Image:</label></th>
+            <td><input ngModel (change)='saveImage($event.target.files)' type="file" name="image" accept="image/*" required id="id_image"></td>
+         </tr>
+   </tbody></table>
+   <input type="submit" class="button">  
+ </form>

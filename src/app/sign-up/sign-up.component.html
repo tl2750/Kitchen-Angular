@@ -1,0 +1,22 @@
+<!-- First Photo Grid-->
+<div class="w3-row-padding">
+
+    <form #signupForm (ngSubmit)='createNewUser()' method="post" novalidate="" enctype="multipart/form-data">
+      <input type="hidden" name="csrfmiddlewaretoken" value="7UDcnqrxpnhYK2XudRitDgiPgpFOHM2CBnSOxroDBRvwWvIUFg7oya6vzZG9q0fU">
+      <table stlye="border: 3px solid black;">
+         <tbody>
+           <tr><th><label for="id_username">Username:</label></th><td><input type="text" name="username" maxlength="30" required="" id="id_username" [(ngModel)]="NewUser.username"></td></tr>
+<tr><th><label for="id_first_name">First name:</label></th><td><input type="text" name="first_name" maxlength="20" required="" id="id_first_name" [(ngModel)]="NewUser.first_name"></td></tr>
+<tr><th><label for="id_last_name">Last name:</label></th><td><input type="text" name="last_name" maxlength="20" required="" id="id_last_name" [(ngModel)]="NewUser.last_name"></td></tr>
+<tr><th><label for="id_password1">Password:</label></th><td><input type="password" name="password1" maxlength="10" required="" id="id_password1" [(ngModel)]="NewUser.password1"></td></tr>
+<tr><th><label for="id_password2">Confirm Password:</label></th><td><input type="password" name="password2" maxlength="10" required="" id="id_password2" [(ngModel)]="NewUser.password2"></td></tr>
+<tr><th><label for="id_question_1">Question 1:</label></th><td><input type="text" name="question_1" value="What is your favorite color?" maxlength="100" style="width:250px;" class="w3-bar-item w3-button" readonly="" required="" id="id_question_1" ></td></tr>
+<tr><th><label for="id_answer_1">Answer 1:</label></th><td><input type="text" name="answer_1" required="" id="id_answer_1" [(ngModel)]="NewUser.answer_1"></td></tr>
+<tr><th><label for="id_question_2">Question 2:</label></th><td><input type="text" name="question_2" value="What is your favorite place to live?" maxlength="100" style="width:300px;" class="w3-bar-item w3-button" readonly="" required="" id="id_question_2" ></td></tr>
+<tr><th><label for="id_answer_2">Answer 2:</label></th><td><input type="text" name="answer_2" required="" id="id_answer_2" [(ngModel)]="NewUser.answer_2"></td></tr>
+<tr><th><label for="id_is_provider">Become a seller:</label></th><td><input type="checkbox" name="is_provider" id="id_is_provider" [(ngModel)]="NewUser.is_provider"></td></tr>
+      </tbody></table>
+      <input type="submit"  class="button" >  
+    </form>
+  
+</div>

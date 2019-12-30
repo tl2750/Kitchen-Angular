@@ -1,0 +1,39 @@
+
+
+
+<!-- <input [disabled]='isDisabled' ngModel='keivn' > <span> {{keivn}}</span> -->
+<!-- <input name='username' [(ngModel)]="username" #ctrl="ngModel" required> {{ username | json }}  -->
+
+<!-- *ngIf='login; then loginBlock ;else loginElseBlock' -->
+<!-- *ngIf='login; else loginElseBlock' -->
+<!-- <h2 [ngClass]='red' > Your are logged in</h2> -->
+
+
+<ng-template #loginElseBlock >
+   <h2> You are not logged in</h2>
+</ng-template>
+
+<h2 style='margin-top: -80px; margin-left: 470px;'><b>Home</b></h2>
+
+<div class="w3-row-padding"   >
+   <div *ngFor='let kitchen of kitchens' id='{{kitchen.id}}' class="kitchen">
+      <h3><strong>{{ kitchen.kitchen_name }}</strong> </h3>
+      <img (click)='goMenu(kitchen.id)' src='{{kitchen.image_url}}' alt="Norway" style="width:100%" class="w3-hover-opacity">
+      <p> Owner: {{kitchen.username }}</p>        
+   </div>
+
+ </div>
+
+
+
+<style>
+   .kitchen, img{
+      width: 300px;
+      height: 250px;
+      padding: 5px 5px 5px 5px;
+      display: inline-block;
+   }
+   img:hover{
+      border: 1px solid black;
+   }
+</style>

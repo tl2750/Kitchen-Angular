@@ -1,0 +1,24 @@
+
+<h2 style='margin-top: -80px; margin-left: 470px;'><b>My Kitchens</b></h2>
+ 
+ <div class="w3-row-padding"   >
+   <div (click)='addDishView(kitchen)' *ngFor='let kitchen of kitchens' id='{{kitchen.id}}' class="kitchen">
+      <h3><strong>{{ kitchen.kitchen_name }}</strong> </h3>
+      <img src='{{kitchen.image_url}}' alt="Norway" style="width:100%" class="w3-hover-opacity">
+      <p>Owner: {{kitchen.username }}</p>        
+   </div>
+
+ </div>
+
+
+ <style>
+   .kitchen, img{
+      width: 300px;
+      height: 250px;
+      padding: 5px 5px 5px 5px;
+      display: inline-block;
+   }
+   img:hover{
+      border: 1px solid black;
+   }
+</style>

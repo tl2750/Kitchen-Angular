@@ -1,0 +1,47 @@
+
+<h2 style='margin-top: -80px; margin-left: 470px;'><b>{{name }} {{order_id}}</b></h2>
+
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:-10px">
+    <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+      <p></p>
+
+        <table style="width:100%">
+            <tr>
+                <th>Dish</th>
+                <th>Price</th>
+                <th>From</th>
+                <th></th>
+            </tr>
+
+            <tr></tr>
+            <tr></tr>
+            
+
+            <tr *ngFor="let ord of thisOrder">
+                <td class='td'>{{ ord.dish_name }}</td>
+                <td>${{ ord.price }}</td>
+                <td>{{ ord.kitchen_name }}</td>
+                <td *ngIf="purchased != True">
+                    <a id='{{ item.id }}' href='#food' class='button'>Remove</a>
+                </td> 
+            </tr>
+            <br>
+            <tr >
+                <td ></td>
+                <td><b> Total: ${{price}} </b></td>
+                <td></td>
+                <td></td> 
+            </tr>
+        </table>
+        
+    </div>
+    
+</div>
+
+<style>
+
+    td{
+        font-size: 18px;
+    }
+
+</style>
